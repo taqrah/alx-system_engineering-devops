@@ -1,1 +1,1 @@
-0x04-loops_conditions_and_parsing
+Shell Bash Scripting. Loops, conditions and parsing
