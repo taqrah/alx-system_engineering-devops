@@ -1,1 +1,57 @@
+##SIMPLE WEB STATCK##
 
+A simple web stack is a collection of software necessary for web development, including an operating system, a programming language, database software, and a web server. One commonly used web stack is LAMP.
+
+Whiteboarding:
+
+A user wants to access our website reachable via www.foobar.com.
+
+Design:
+
+To meet the requirements, we will set up a one server web infrastructure using the following components:
+
+1. Hardware:
+   One server computer
+2. Software:
+   Operating system
+   Nginx web server
+   Application server
+   Application files (code base)
+   MySQL database
+3. Domain name:
+   foobar.com configured with a www record that points to the server IP address 8.8.8.8
+   Explanation:
+
+A server:
+A server is a computer or software program that provides functionality for other programs or devices. In this scenario, the server computer will host the website, and the software programs installed on it will handle the requests from the user's computer.
+
+The role of the domain name:
+A domain name is an easy-to-remember name associated with a physical IP address on the Internet. It enables users to access websites without having to know the associated IP addresses of the websites. In this scenario, the domain name foobar.com is associated with the server's IP address 8.8.8.8, making the website reachable via www.foobar.com.
+
+What type of DNS record www is in www.foobar.com:
+www is a CNAME (Canonical Name) DNS record type in www.foobar.com since it also points to the same IP address as foobar.com, and if the IP address changes, we can only record changes in the DNS A record of foobar.com.
+
+The role of the web server:
+The web server is a software program that distributes web pages as they are requested. It stores, processes, and delivers web pages to users. In this scenario, we will use the Nginx web server to accept requests made by the user's browser through HTTP, process the requests, and respond with HTML content.
+
+The role of the application server:
+The application server acts as a host (or container) for the user's business logic while facilitating access to and performance of the business application. In this scenario, we will use an application server to host the application files (your code base).
+
+The role of the database:
+The database software is used for storing data in our application. It allows the management, creation, updating, and retrieval of records. In this scenario, we will use MySQL database software to give structure to business information.
+
+What is the server using to communicate with the computer of the user requesting the website:
+The server communicates with the computer of the user requesting the website using the Hypertext Transfer Protocol (HTTP).
+
+Issues:
+
+1. SPOF:
+   Single Point Of Failure (SPOF) is a part of the system that, if it fails, the whole system stops from working. In this scenario, we only have one server, one web server, one application server, and one database, hence any single failure in any part of the system will cause all the system to stop.
+
+2. Downtime when maintenance needed (like deploying new code web server needs to be restarted):
+   In this scenario, downtime will occur because we only have one server and one database used to make the deployment and maintenance, hence there will be no way users will access the website during that period.
+
+3. Cannot scale if too much incoming traffic:
+   The infrastructure above cannot scale if there's too much incoming traffic because there is no second server in the system to share loads, and the system will be overloaded.
+
+Diagram Link: https://drive.google.com/file/d/17pkgQ9d6jqYGPmcWNZwDFtokBcbz9uLm/view?usp=drivesdk

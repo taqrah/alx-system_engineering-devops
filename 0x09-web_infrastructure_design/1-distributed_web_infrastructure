@@ -1,0 +1,25 @@
+To design a three server web infrastructure that hosts the website www.foobar.com, We will add 2 servers, 1 web server, 1 application server, 1 load-balancer, 1 set of application files, and 1 database to fulfill the requirements.
+
+The first server we will add is the web server, which will handle the web requests for the website. We will use Nginx as our web server, which is a fast and reliable open-source web server.
+
+The second server we will add is the application server, which will handle the application logic and processing. We will use a Python-based application server such as Gunicorn or uWSGI.
+
+The load-balancer we will use is HAproxy, which will distribute the incoming web requests across multiple servers. This will increase the efficiency, reliability, and availability of our site. In case one of the servers crashes, HAproxy will automatically redirect the traffic to the remaining servers.
+
+The set of application files we will use will be our code base, which contains the code that runs the website.
+
+For the database, we will use MySQL, which is a popular open-source relational database management system. MySQL will store all the data related to our website.
+
+The distribution algorithm we will use for our load-balancer is Round Robin, which is the most common algorithm. Requests will be distributed across the group of servers sequentially. For example, request 1 will be directed to server 1, request 2 to server 2, and so forth.
+
+Our load-balancer will enable an active-active setup. In an active-active configuration, the load-balancer spreads out the workload’s traffic among multiple nodes. This ensures that our website can handle a large number of requests and provides high availability.
+
+A database Primary-Replica (Master-Slave) cluster works by replicating data from the primary node to one or more replica nodes. The primary node is the authoritative source for the database, and all the changes are made to it. The replica nodes are synchronized to the primary node, so they always have the latest data.
+
+The primary node is responsible for handling all the write operations, while the replica nodes are used for read operations. The replica nodes can also be used for failover if the primary node fails.
+
+The main difference between the Primary node and the Replica node in regard to the application is that the Primary node is responsible for handling all the write operations, while the Replica nodes are used for read operations. The Replica nodes are synchronized to the Primary node, so they always have the latest data.
+
+The issues with this infrastructure are that there are SPOF (Single Point of Failure) because if the load-balancer fails, the entire system will be affected. We also need to implement security measures like a firewall and HTTPS to protect our website from potential threats. Additionally, we need to set up monitoring to track the performance and health of our infrastructure to identify and fix any issues quickly.
+
+Diagram link: https://drive.google.com/file/d/17vh57RIou16Tatama-pFEM_Glz2Qy-80/view?usp=drivesdk

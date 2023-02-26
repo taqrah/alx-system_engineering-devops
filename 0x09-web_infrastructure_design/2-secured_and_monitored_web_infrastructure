@@ -1,0 +1,17 @@
+##Secured and monitored web infrastructure##
+
+To design a secure, encrypted and monitored three-server web infrastructure that hosts the website www.foobar.com, we need to add a few elements.
+
+First, we need to add an SSL certificate to serve www.foobar.com over HTTPS. This ensures that all traffic between the browser and the webserver is encrypted, making it difficult for attackers to intercept sensitive information such as passwords, credit card details, and other personal data.
+
+Second, we need to introduce infrastructure monitoring. This will help us collect health and performance data of servers, virtual machines, containers, databases, and other backend components in a tech stack. We will install monitoring clients (data collector for Sumologic or other monitoring services) on all three servers to collect infrastructure metrics, which will be sent to a monitoring platform for analysis and visualization. Infrastructure monitoring provides visibility across multiple layers of the tech stack, including the hardware, the operating system, and the application server, which helps engineers spot and prevent problems anywhere in the backend.
+
+Finally, we need to add firewalls to our infrastructure. Firewalls are software or hardware that work as a filtration system for the data attempting to enter your computer or network. They scan packets for malicious code or attack vectors that have already been identified as established threats. Firewalls will prevent any malicious packets from entering the network or reaching the servers, thereby enhancing the overall security of the infrastructure.
+
+It is essential to explain why we are adding each element to the infrastructure. SSL certificates help to secure the communication between the browser and the webserver, ensuring that sensitive information is encrypted. Infrastructure monitoring provides visibility into the health of backend components that run the applications, ensuring that critical services are available for users and that they work as expected. Firewalls are added to prevent unauthorized access to the network and protect against attacks.
+
+In case we want to monitor our web server QPS, we can use a tool like Prometheus, which is an open-source systems monitoring and alerting toolkit. We can use Prometheus to collect metrics from the web server, including QPS, and visualize them on a dashboard. We can also set up alerts to notify us when the QPS goes above or below a certain threshold.
+
+There are a few issues with the current infrastructure that we need to address. Terminating SSL certificate at the load balancer is an issue because the communication link after the balancer to the web servers is not encoded. This makes the data vulnerable to unauthorized access if the link between the balancer and the server is compromised. Having only one MySQL server capable of accepting writes is also an issue because if the master goes down, the application cannot write to the database anymore. Having servers with all the same components (database, web server, and application server) might be a problem because it leads to redundancy in the request to read data from the database and in the case of a security breach, the attacker will find it easier to penetrate the devices since their MAC addresses are similar.
+
+Diagram Link: https://drive.google.com/file/d/17rUglDF_u_-V1arvbg35uEYpGLOfbigT/view?usp=drivesdk
