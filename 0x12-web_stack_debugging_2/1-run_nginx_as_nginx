@@ -11,7 +11,7 @@ chmod 644 /etc/nginx/nginx.conf
 
 # Stop and disable Apache if it's running
 systemctl stop apache2
-systemctl disable apache2
+pkill apache2
 
 # Run nginx as nginx user
-sudo -u nginx nginx
+sudo -u nginx service nginx start
